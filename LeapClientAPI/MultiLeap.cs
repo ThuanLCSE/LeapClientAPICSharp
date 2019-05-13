@@ -8,5 +8,13 @@ namespace LeapClientAPI
     class MultiLeap
     {
         public List<Frame> sensors { get; set; }
+
+        internal void reconstructData()
+        {
+            foreach(Frame f in sensors)
+            {
+                f.reconstructAll();
+            }
+        }
     }
 }

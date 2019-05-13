@@ -25,5 +25,24 @@ namespace LeapClientAPI
         public double roll { get; set; }
         public double pitch { get; set; }
         public double yaw { get; set; }
+
+        public void reconstructPoints()
+        { 
+            this.pointables = new List<Pointable>();
+            foreach (Finger finger in fingers)
+            {
+                Pointable point = new Pointable(finger.direction,
+                        finger.length,
+                        finger.stabilizedTipPosition,
+                        finger.tipPosition,
+                        finger.tipVelocity,
+                        finger.touchDistance,
+                        finger.width,
+                        finger.value);
+                this.pointables.Add(point);
+            }
+        }
     }
+
+    
 }
