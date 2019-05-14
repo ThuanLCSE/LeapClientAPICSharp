@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace LeapClientAPI
 {
+    //The information parsed from Hand JSON, the data is recovered from Javascript API
+    //The attributes's description can be found here : https://developer-archive.leapmotion.com/documentation/javascript/api/Leap.Hand.html
     public class Hand
     { 
         public double[] palmPosition { get; set; }
@@ -17,15 +19,22 @@ namespace LeapClientAPI
         public double sphereRadius { get; set; }
         public double timeVisible { get; set; }
         public double[] stabilizedPalmPosition { get; set; }
+        //this attribute is the value returned from method toString() of hand in Javascript
+        public string toString { get; set; }
         public string type { get; set; }
         public Bone arm { get; set; }
         public List<Finger> fingers { get; set; }
         public List<Pointable> pointables { get; set; }
         public long id { get; set; }
+        //these attributes roll, pitch, yaw are the value returned from methods roll(), pitch(), yaw()
+        //of hand in Javascript
         public double roll { get; set; }
         public double pitch { get; set; }
         public double yaw { get; set; }
 
+        // reconstruct the Pointables from Finger
+        //Finger class is extended from Pointable class
+        //The documentation of Finger can be found here : https://developer-archive.leapmotion.com/documentation/python/api/Leap.Finger.html
         public void reconstructPoints()
         { 
             this.pointables = new List<Pointable>();

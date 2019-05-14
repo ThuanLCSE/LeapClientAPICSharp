@@ -1,5 +1,7 @@
 ﻿namespace LeapClientAPI
 {
+    //The Pointable class is reconstructed from Finger list in JSON data
+    //The attributes's description can be found here : https://developer-archive.leapmotion.com/documentation/javascript/api/Leap.Pointable.html
     public class Pointable
     {
         public Pointable(double[] direction, double length, double[] stabilizedTipPosition, double[] tipPosition, double[] tipVelocity, double touchDistance, double width, string value)
